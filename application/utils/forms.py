@@ -3,7 +3,7 @@ import tkinter as tk
 from application.utils.database_handler import get_handle
 
 
-class DataServerInputForm(customtkinter.CTkFrame):
+class ServerDataInputForm(customtkinter.CTkFrame):
     def __init__(self, master):
         super().__init__(master)
 
@@ -21,7 +21,6 @@ class DataServerInputForm(customtkinter.CTkFrame):
             "username": tk.StringVar(self),
         }
 
-        # lables
         self.server_name = customtkinter.CTkLabel(
             self, text="Server Name", fg_color="gray30"
         )
@@ -69,11 +68,9 @@ class DataServerInputForm(customtkinter.CTkFrame):
             print(f"LOG - COLLECTED DATA - '{k}' --> {v.get()}")
         print("---------------------------------------------------")
 
-    # implement json dump here
     def submit_data(self):
         # Debug INFO
-        self.logs()
-
+        # self.logs()
         data_to_write = {}
         for k, v in self.data.items():
             if v == "":

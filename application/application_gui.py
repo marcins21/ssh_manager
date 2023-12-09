@@ -1,6 +1,6 @@
 import customtkinter
 from application.utils.frames import CheckBoxFrame, RadioButtonFrame
-from application.utils.forms import DataServerInputForm
+from application.utils.forms import ServerDataInputForm
 
 
 class App(customtkinter.CTk):
@@ -22,8 +22,8 @@ class App(customtkinter.CTk):
 
         # RIGHT MENU
         self.checkbox_frame_right = CheckBoxFrame(
-            self, names=["check5", "check6", "check7"]
-        )  # title="Right menu")
+            self, names=["check5", "check6", "check7"],title="Right menu"
+        )
         self.checkbox_frame_right.grid(
             row=0, column=1, padx=(10, 0), pady=(10, 0), sticky="nsew"
         )
@@ -67,7 +67,7 @@ class AddServerForm(customtkinter.CTk):
         self.grid_columnconfigure(0, weight=1)
         self.grid_rowconfigure(0, weight=1)
 
-        server_info_form = DataServerInputForm(self)
+        server_info_form = ServerDataInputForm(self)
         server_info_form.grid(row=0, column=0, padx=10, pady=10, sticky="ewns")
 
 
