@@ -1,6 +1,7 @@
 import customtkinter
+
 from application.utils.frames import CheckBoxFrame, RadioButtonFrame
-from application.utils.forms import ServerDataInputForm
+from application.utils.forms import ServerDataInputForm, LoginForm
 
 
 class App(customtkinter.CTk):
@@ -58,7 +59,6 @@ class App(customtkinter.CTk):
         add_server_from = AddServerForm()
         add_server_from.mainloop()
 
-
 class AddServerForm(customtkinter.CTk):
     def __init__(self):
         super().__init__()
@@ -70,6 +70,26 @@ class AddServerForm(customtkinter.CTk):
         server_info_form = ServerDataInputForm(self)
         server_info_form.grid(row=0, column=0, padx=10, pady=10, sticky="ewns")
 
+class LoginIntoApp(customtkinter.CTk):
+    def __init__(self):
+        super().__init__()
 
-app = App()
-app.mainloop()
+        self.geometry("540x400")
+        self.grid_columnconfigure(0, weight=1)
+        self.grid_rowconfigure(0, weight=1)
+
+        self.wrong_login_credentials = "Wrong Login Or Passowrd"
+
+        self.login_form = LoginForm(self)
+        self.login_form.grid(row=0, column=0, padx=10, pady=10, sticky="nswe")
+
+        self.login_label = customtkinter.CTkLabel(self, text=self.wrong_login_credentials, text_color="red")
+        self.login_label.grid(row=0, column=0, sticky="new")
+
+        self.confirm_button = customtkinter.CTkButton(self,text="Go to App", command=self.login_form.check_if_logged, corner_radius=6,fg_color="gray30")
+        self.confirm_button.grid(row=0, column=0,padx=(10,0), pady=(20,0), sticky="sew")
+
+
+
+login = LoginIntoApp()
+login.mainloop()

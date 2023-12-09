@@ -79,3 +79,57 @@ class ServerDataInputForm(customtkinter.CTkFrame):
                 data_to_write[k] = v.get()
 
         self.database.write_data(data_to_write)
+
+
+class LoginForm(customtkinter.CTkFrame):
+    #Hardcoded credentials
+    CREDENTIALS = {"admin":["admin","admin"], "technician":["tech","tech"],"testuser":["test","test"]}
+
+    def __init__(self, master):
+        super().__init__(master)
+        self.master = master
+        self.logged = False
+        self.FontSettings = ("Helvetica", 25, "bold")
+        self.grid_columnconfigure((0, 1), weight=1)
+        self.grid_rowconfigure((0, 1, 2, 3, 4), weight=1)
+
+        self.user_data = {
+            "login": tk.StringVar(self,value=""),
+            "password": tk.StringVar(self,value="")
+        }
+
+
+        self.login_label = customtkinter.CTkLabel(self, text="Login")
+        self.login_label.grid(row=0, column=0, padx=10, pady=(10,0), sticky="nswe")
+
+        self.password_label = customtkinter.CTkLabel(self, text="Password")
+        self.password_label.grid(row=1, column=0, padx=10, pady=(10,0), sticky="nswe")
+
+
+        self.login_input = tk.Entry(
+            self, font=self.FontSettings ,textvariable=self.user_data["login"]
+        ).grid(row=0, column=1, padx=(10, 0), pady=(10, 0), sticky="enws")
+
+        self.password_input = tk.Entry(
+            self, font=self.FontSettings, textvariable=self.user_data["password"]
+        ).grid(row=1, column=1, padx=(10, 0), pady=(10, 0), sticky="enws")
+
+
+        self.login_button = customtkinter.CTkButton(self,text="Submit", font=self.FontSettings,  command=self.submit_data)
+        self.login_button.grid(row=2, column=0, columnspan=2,rowspan=3, padx=(10,0), pady=(10,0), sticky="nswe")
+
+
+    def submit_data(self):
+        submited_login = self.user_data["login"].get()
+        submited_password = self.user_data["password"].get()
+        for value in self.CREDENTIALS.values():
+            if value[0] == submited_login:
+                if submited_password == value[1]:
+                    self.logged = True
+                    login_label = customtkinter.CTkLabel(self.master, text="Login Sucessfull", text_color="lightGreen")
+                    login_label.grid(row=0, column=0, sticky="new")
+
+
+
+    def check_if_logged(self):
+        print(self.logged)
