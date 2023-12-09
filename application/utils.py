@@ -12,7 +12,7 @@ import tkinter as tk
 # -------------------------------------------------------------------------------------------
 
 
-class CheckBoxFrame(customtkinter.CTkFrame):
+class CheckBoxFrame(customtkinter.CTkScrollableFrame):
     def __init__(self, master, names, title="DefaultCheckBoxFrame"):
         super().__init__(master)
         self.grid_columnconfigure(0, weight=1)
@@ -42,7 +42,7 @@ class CheckBoxFrame(customtkinter.CTkFrame):
         return checked
 
 
-class RadioButtonFrame(customtkinter.CTkFrame):
+class RadioButtonFrame(customtkinter.CTkScrollableFrame):
     def __init__(self, master, names, title="DefaultRadioFrame"):
         super().__init__(master)
         self.grid_columnconfigure(0, weight=1)
