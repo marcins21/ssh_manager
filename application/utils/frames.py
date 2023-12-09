@@ -50,7 +50,7 @@ class RadioButtonFrame(customtkinter.CTkScrollableFrame):
 
         self.names = names
         self.radio_buttons = []
-        self.value = customtkinter.StringVar(value="")
+        self.value = customtkinter.StringVar(value="default")
 
         self.title = customtkinter.CTkLabel(
             self, text=self.title, fg_color="gray50", corner_radius=10
