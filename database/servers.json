@@ -1,0 +1,16 @@
+{
+  "sshServers": [
+    {
+      "server_name": "hello",
+      "server_ip": "helloo",
+      "password": "hello ",
+      "username": "hello"
+    },
+    {
+      "server_name": "test",
+      "server_ip": "test",
+      "password": "test",
+      "username": "test"
+    }
+  ]
+}

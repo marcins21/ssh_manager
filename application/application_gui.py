@@ -62,7 +62,7 @@ class App(customtkinter.CTk):
 class AddServerForm(customtkinter.CTk):
     def __init__(self):
         super().__init__()
-        self.title = "TESTING ENV"
+        self.title = "Adding New Server"
         self.geometry("780x540")
         self.grid_columnconfigure(0, weight=1)
         self.grid_rowconfigure(0, weight=1)
