@@ -15,6 +15,7 @@ SSH Manager - Project
 
 
 ### Adding New Server Into Database
-![image](https://github.com/marcins21/ssh_manager/assets/62626012/6491fbc5-53a5-45c7-958c-dcc29f6d1f8e)
+![image](https://github.com/marcins21/ssh_manager/assets/62626012/77a543f6-1705-4d21-b5fd-ae4aee1fa148)
+
 
 
