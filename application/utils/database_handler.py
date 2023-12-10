@@ -5,4 +5,3 @@ DATABASE_HANDLE = DatabaseOperations()
 
 def get_handle():
     return DATABASE_HANDLE
-
